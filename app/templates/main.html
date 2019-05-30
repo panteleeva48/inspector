@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inspector</title>
+    <link rel="stylesheet" href="./static/css/new.css">
+</head>
+<body>
+    <header>
+        <h1>Inspector</h1>
+    </header>
+    <div class="row">
+        <div align="center" class="left_column">
+            <h2>Essay</h2>
+            <form action="" method="POST" enctype=multipart/form-data>
+                <p>
+                    <textarea class="essay" name="text" placeholder="Enter your essay or upload txt-file">{{ text }}</textarea>
+                </p>
+                    <input class="bttn-dark" type="file" name=file>
+                    <button class="bttn-dark" type="submit">Inspect</button>
+            </form>
+        </div>
+        <div class="right_column">
+            <h2>Result</h2>
+            {% if show_results %}
+                <p class="text_recommendation">
+                {{ binary_result }} The probable grade in the exam is <span class="underline">{{grade}}</span>. To improve your writing skills look at the recommendations below.
+                </p>
+                <h2>Statistics</h2>
+                <p>
+                    <table class="table_recommendation">
+                        <tr>
+                            <td style="width: 200px;">Number of words</td><td style="text-align: center; width: 50px;">{{ num_tok }}</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 200px;">Number of lemmas</td><td style="text-align: center; width: 50px;">{{ ndw }}</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 200px;">Number of sentences</td><td style="text-align: center; width: 50px;">{{ num_sent }}</td>
+                        </tr>
+                    </table>
+                </p>
+                <p class="header_text_recommendation">
+                    Information about <span class="academic">academic words</span> and <span class="connector">linking phrases</span>
+                </p>
+                <p>
+                    <table class="table_recommendation">
+                        <tr>
+                            <td style="width: 200px;">Number of academic words</td><td style="text-align: center; width: 50px;">{{ num_aca }}</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 200px;">Number of linking phrases</td><td style="text-align: center; width: 50px;">{{ num_con }}</td>
+                        </tr>
+                    </table>
+                </p>
+                <p class="text_recommendation">
+                    {{ bolded_text }}
+                </p>
+                <p class="header_text_recommendation">
+                    Spelling mistakes
+                </p>
+                <p class="text_recommendation">
+                    {{ mistakes }}
+                </p>
+                <h2>Recommendations</h2>
+                    <p class="text_recommendation">
+                        The model that predicted your grade is based on the features presented in the table below. Having compared the mean values of these features, we highlight the features that you should improve (<span class="connector">green</span> - good indicators; <span class="academic">red</span> - features to be improved). {{ feedback }}
+                    </p>
+                    <p class="text_recommendation">
+                        {{ mean }}
+                    </p>
+                {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+

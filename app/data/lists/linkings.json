@@ -1,0 +1,107 @@
+{
+    "Addition": [
+        {
+            "Sentence connectors": [
+                "Furthermore",
+                "In addition",
+                "Moreover"
+            ]
+        },
+        {
+            "Phrases linkers": [
+            	"In addition"
+            ]
+        }
+    ],
+    "Adversativity": [
+        {
+            "subordinators": [
+                "Although",
+                "Even though"
+            ]
+        },
+        {
+            "Sentence connectors": [
+                "However",
+                "Nevertheless"
+            ]
+        },
+        {
+            "Phrase linkers": [
+                "despite",
+                "In spite of"
+            ]
+        }
+    ],
+    "Cause and effect": [
+        {
+            "subordinators": [
+                "Because",
+                "since"
+            ]
+        },
+        {
+            "Sentence connectors": [
+                "Therefore",
+                "As a result",
+                "consequently",
+                "Hence",
+                "Thus"
+            ]
+        },
+        {
+            "Phrase linkers": [
+                "Because of",
+                "Due to",
+                "As a result of"
+            ]
+        }
+    ],
+    "Clarification": [
+        {
+            "Sentence connectors": [
+                "In other words",
+                "That is",
+                "i.e."
+            ]
+        }
+    ],
+    "Contrast": [
+        {
+            "Subordinators": [
+                "while",
+                "whereas"
+            ]
+        },
+        {
+            "Sentence connectors": [
+                "In contrast",
+                "However",
+                "On the other hand",
+                "Conversely"
+            ]
+        },
+        {
+            "Phrase linkers": [
+            	"Unlike"
+            ]
+        }
+    ],
+    "Illustration": [
+        {
+            "Sentence connectors": [
+                "For example",
+                "For instance"
+            ]
+        }
+    ],
+    "Intensification": [
+        {
+            "Sentence connectors": [
+                "On the contrary",
+                "As a matter of fact",
+                "In fact"
+            ]
+        }
+    ]
+}

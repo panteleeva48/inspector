@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+flask = "*"
+numpy = "*"
+conllu = "*"
+pyenchant = "*"
+ufal-udpipe = "*"
+pyspellchecker = "*"
+nltk = "*"
+scikit-learn = "*"
+pandas = "*"
+json2html = "*"
+
+[requires]
+python_version = "3.6"
