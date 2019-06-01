@@ -112,3 +112,5 @@ settings/env
 *.pkl
 .pytest_cache
 t.py
+/__pycache__
+/.idea
