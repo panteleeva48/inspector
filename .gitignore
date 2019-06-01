@@ -114,3 +114,6 @@ settings/env
 t.py
 /__pycache__
 /.idea
+*.pkl
+*.pyc
+*.xml
