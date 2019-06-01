@@ -19,6 +19,77 @@
                     <input class="bttn-dark" type="file" name=file>
                     <button class="bttn-dark" type="submit">Inspect</button>
             </form>
+            {% if show_results %}
+                <p class="text_recommendation">
+                    <span class="academic">Lexical density</span> is the ratio of the number of lexical words (nouns, adjectives, verbs, and adverbs) to the total number of words in a text.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of possessives</span>: possessives are forms that we use to talk about possessions and relationships between things and people, for example <em>mother's smile</em>, <em>the clothes of my father</em>.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of coordinate phrases</span>: only adjectives, adverbs, nouns and verb phrases could be coordinated, for example <em>She is <strong>beautiful and smart</strong></em>. <em>He <strong>smiled and went away</strong></em>.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of auxilaries</span>: <em>have</em>, <em>do</em>, <em>can</em>, <em>should</em>, <em>must</em>...
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Average number before root</span>: a root is a main verb of the sentence, for example <em>She <strong>is</strong> beautiful and smart</em>. <em>He <strong>went</strong> to help them</em>.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of adjective clause</span>: an adjective clause - clause that modifies nominal phrase (noun), for example <em>There are many online sites <strong>offering booking facilities</strong></em>.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of functional n-grams</span>: functional n-grams - frequent organising collocations, for example <em>is totally different from</em>, <em>a large amount of</em>
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Derivational level 3</span>: the number of words with suffixes from <a href="https://www.pdffiller.com/jsfiller-desk14/?projectId=301149742&expId=5010&expBranch=3#1f2d9152ddc848798c5e2e06bc4db69c">(Bauer and Nation 1993)</a>, for example -<em>able</em> (<em>readable</em>), -<em>er</em> (<em>reader</em>), -<em>ish</em> (<em>freakish</em>), -<em>less</em> (<em>peerless</em>), -<em>ly</em> (<em>quickly</em>)...
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Derivational level 4</span>: the number of words with suffixes from <a href="https://www.pdffiller.com/jsfiller-desk14/?projectId=301149742&expId=5010&expBranch=3#1f2d9152ddc848798c5e2e06bc4db69c">(Bauer and Nation 1993)</a>, for example -<em>tion</em> (<em>attention</em>), -<em>ess</em> (<em>happiness</em>), -<em>ful</em> (<em>wonderful</em>), -<em>ism</em> (<em>realism</em>), -<em>ist</em> (<em>specialist</em>), -<em>ity</em> (<em>civility</em>)...
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Derivational level 5</span>: the number of words with suffixes from <a href="https://www.pdffiller.com/jsfiller-desk14/?projectId=301149742&expId=5010&expBranch=3#1f2d9152ddc848798c5e2e06bc4db69c">(Bauer and Nation 1993)</a>, for example -<em>age</em> (<em>percentage</em>), -<em>al</em> (<em>approval</em>), -<em>ally</em> (<em>idiotically</em>), -<em>an</em> (<em>Russian</em>)...
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Derivational level 6</span>: the number of words with suffixes from <a href="https://www.pdffiller.com/jsfiller-desk14/?projectId=301149742&expId=5010&expBranch=3#1f2d9152ddc848798c5e2e06bc4db69c">(Bauer and Nation 1993)</a>, for example -<em>ee</em> (<em>attendee</em>), -<em>ic</em> (<em>poetic</em>), -<em>ify</em> (<em>intensify</em>)...
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of sentences</span>: a sentence is a group of words that is separated from another by a full stop, a question mark, an exclamation mark, a quotation mark, or suspension points.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of clauses</span>: a clause is a structure with a subject and a verb, for example <em>I read a book, Lola danced</em> - 2 clauses (<em>I read a book</em>, <em>Lola danced</em>).
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of lemmas</span>: I am fine - 3 lemmas (<em>I</em>, <em>be</em>, <em>fine</em>)
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of infinitives</span>: <em>to read</em>, <em>to dance</em>.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Noun variation</span> is the ratio of the number of nouns to the total number of lexical words (nouns, adjectives, verbs, and adverbs) in a text.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Verb variation</span> is the ratio of the number of verbs to the total number of lexical words (nouns, adjectives, verbs, and adverbs) in a text.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Lexical sophistication</span> is the ratio of the number of advanced words to the total number of words.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of linking phrases</span>: <em>besides</em>, <em>however</em>, <em>in conclusion</em>...
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Average length of the sentence</span>: the average number of words per sentence.
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of gerunds</span>: <em>doing</em>, <em>smiling</em>, <em>running</em>...
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Number of verbs in past simple</span>: <em>smiled</em>, <em>looked</em>, <em>tried</em>...
+                </p>
+                <p class="text_recommendation">
+                    <span class="academic">Verb sophistication</span> is the ratio of the number of advanced verbs to the total number of words.
+                </p>
+            {% endif %}
         </div>
         <div class="right_column">
             <h2>Result</h2>
@@ -69,7 +140,7 @@
                     <p class="text_recommendation">
                         {{ mean }}
                     </p>
-                {% endif %}
+            {% endif %}
         </div>
     </div>
 </body>
