@@ -37,6 +37,14 @@ MEAN_PATH = os.path.join(BASE_DIR, 'data', 'data_for_train', 'means.json')
 with open(MEAN_PATH, 'rb') as f:
     MEAN = json.load(f)
 
+VECTORIZER_TYPE_PATH = os.path.join(BASE_DIR, 'data', 'models', 'vectorizer_type.pickle')
+with open(VECTORIZER_TYPE_PATH, 'rb') as vcrzr:
+    VECTORIZER_TYPE = pickle.load(vcrzr)
+
+TYPE_MODEL_PATH = os.path.join(BASE_DIR, 'data', 'models', 'type_model.pickle')
+with open(TYPE_MODEL_PATH, 'rb') as f:
+    TYPE_MODEL = pickle.load(f)
+
 loaded_vectorizer_bin = TfidfVectorizer(decode_error='replace',
                                         vocabulary=VECTORIZER_BIN
                                         )
@@ -44,6 +52,11 @@ loaded_vectorizer_bin = TfidfVectorizer(decode_error='replace',
 loaded_vectorizer_multi = TfidfVectorizer(decode_error='replace',
                                           vocabulary=VECTORIZER_MULTI
                                           )
+
+loaded_vectorizer_type = TfidfVectorizer(decode_error='replace',
+                                         vocabulary=VECTORIZER_TYPE
+                                         )
+
 gf = GetFeatures(UDPIPE_MODEL)
 UPLOAD_FOLDER = os.path.join(BASE_DIR, 'data', 'files')
 ALLOWED_EXTENSIONS = {'txt'}
@@ -146,6 +159,13 @@ def predict_multi(text, feature_dict):
     return grade
 
 
+def predict_type(text):
+    text = loaded_vectorizer_type.fit_transform(np.array([text]))
+    X = sparse.hstack([text])
+    type = TYPE_MODEL.predict(X)[0]
+    return type
+
+
 def predict_grade(text, feature_dict):
     group = predict_binary(text, feature_dict)
     grade = predict_multi(text, feature_dict)
@@ -202,6 +222,16 @@ def get_closest_to_non_best(best, non_best, value, feature_name):
         return None
     else:
         return feature_name
+
+
+def get_type_num(type, num_tok):
+    if type == 1:
+        if num_tok < 150:
+            return 'It is not enough words in your essay. The required size of the graph discription essay is at least 150 words. '
+    if type == 2:
+        if num_tok < 250:
+            return 'It is not enough words in your essay. The required size of the opinion essay is at least 250 words. '
+    return ''
 
 
 def recommendation(feature_dict):
@@ -277,9 +307,12 @@ def analyze_text():
     num_tok = gf.count_tokens(punct=False)
     feature_dict = gather_values(gf)
     binary_result, grade = predict_grade(changed_text, feature_dict)
+    type = predict_type(changed_text)
+    rec_num_tok = get_type_num(type, num_tok)
     bolded_text, num_aca = get_academic_words(changed_text)
     bolded_text_2, num_con = get_connectors(bolded_text)
     mean_info, feedback = recommendation(feature_dict)
+    feedback = rec_num_tok + feedback
     return render_template('main.html',
                            text=text,
                            show_results=1,
