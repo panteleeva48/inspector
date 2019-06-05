@@ -171,9 +171,9 @@ def predict_grade(text, feature_dict):
     grade = predict_multi(text, feature_dict)
     binary_result = None
     if group == 'non-best':
-        binary_result = f'Your essay is not good enough.'
+        binary_result = 'Your essay is not good enough.'
     elif group == 'best':
-        binary_result = f'Your essay is good.'
+        binary_result = 'Your essay is good.'
     return binary_result, grade
 
 
@@ -185,16 +185,16 @@ def get_academic_words(text):
         stripped_word = word.strip(punctuation)
         lemma = wordnet_lemmatizer.lemmatize(stripped_word)
         if lemma in UWL:
-            marked_word = re.sub(stripped_word, f'<span class="academic">{stripped_word}</span>', word)
-            bolded_text += f'{marked_word} '
+            marked_word = re.sub(stripped_word, '<span class="academic">{stripped_word}</span>', word)
+            bolded_text += str(marked_word) + ' '
             num_aca += 1
         else:
-            bolded_text += f'{word} '
+            bolded_text += str(word) + ' '
     return bolded_text, num_aca
 
 
 def get_connectors(text):
-    text = re.sub(f'( |^|\n)({CONNECTORS})( |$|\n)', '<span class="connector">\g<1>\g<2>\g<3></span>', text)
+    text = re.sub('( |^|\n)(' + str(CONNECTORS) + ')( |$|\n)', '<span class="connector">\g<1>\g<2>\g<3></span>', text)
     num_con = len(re.findall('<span class="connector">', text))
     return text, num_con
 
@@ -204,11 +204,11 @@ def get_result_spelling_mistakes(text, mistakes):
     for mistake in mistakes:
         text_word = mistake[0]
         correction = mistake[1]
-        sentence = re.search(f"([^.]*?{text_word}[^.]*\.)", text)
+        sentence = re.search('([^.]*?{' + str(text_word) + '[^.]*\.)', text)
         if sentence:
             sentence = sentence.group()
-            result = re.sub(f'{text_word}', f'<span class="spelling">{text_word} &#8594; {correction}</span>', sentence)
-            result_spelling += f'{result}<br>'
+            result = re.sub(str(text_word), '<span class="spelling">' + str(text_word) + ' &#8594; ' + str(correction) + '</span>', sentence)
+            result_spelling += str(result) + '<br>'
     return result_spelling
 
 
@@ -259,24 +259,24 @@ def recommendation(feature_dict):
     for obj in MEAN:
         feature_name = obj.get('Feature')
         if feature_name in features_to_improve:
-            table = table.replace(f'width: 100px;text-align: center;">{feature_name}',
-                                  f'width: 300px;color: darkred;text-align: center;'
-                                  f'font-weight: bolder;">{feature_mapping.get(feature_name)}')
+            table = table.replace('width: 100px;text-align: center;">' + str(feature_name),
+                                  'width: 300px;color: darkred;text-align: center;'
+                                  'font-weight: bolder;">' + str(feature_mapping.get(feature_name)))
             fb = feature_feedback_to_improve.get(feature_name)
             if fb not in feedback_to_improve:
-                feedback_to_improve += f'more {fb}; '
+                feedback_to_improve += 'more ' + str(fb) + '; '
         else:
-            table = table.replace(f'width: 100px;'
-                                  f'text-align: center;">{feature_name}',
-                                  f'width: 300px;color: darkgreen;text-align: center;'
-                                  f'font-weight: bolder;">{feature_mapping.get(feature_name)}')
+            table = table.replace('width: 100px;'
+                                  'text-align: center;">' + str(feature_name),
+                                  'width: 300px;color: darkgreen;text-align: center;'
+                                  'font-weight: bolder;">' + str(feature_mapping.get(feature_name)))
             fb = feature_feedback_best.get(feature_name)
             if fb not in feedback_best:
-                feedback_best += f'{fb}; '
+                feedback_best += str(fb) + '; '
     feedback_to_improve = feedback_to_improve.strip('; ') + '.'
     feedback_to_improve = re.sub('; more', ';', feedback_to_improve)
     feedback_best = feedback_best.strip('; ') + '.'
-    return table, f'{feedback_to_improve} {feedback_best}'
+    return table, str(feedback_to_improve) + ' ' + str(feedback_best)
 
 
 @app.route('/')
