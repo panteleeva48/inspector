@@ -18,19 +18,19 @@ from nltk.stem import WordNetLemmatizer
 wordnet_lemmatizer = WordNetLemmatizer()
 
 VECTORIZER_BIN_PATH = os.path.join(BASE_DIR, 'data', 'models', 'vectorizer_binary.pickle')
-with open(VECTORIZER_BIN_PATH, 'r') as vcrzr:
+with open(VECTORIZER_BIN_PATH, 'rb') as vcrzr:
     VECTORIZER_BIN = pickle.load(vcrzr)
 
 VECTORIZER_MULTI_PATH = os.path.join(BASE_DIR, 'data', 'models', 'vectorizer_multi.pickle')
-with open(VECTORIZER_MULTI_PATH, 'r') as vcrzr:
+with open(VECTORIZER_MULTI_PATH, 'rb') as vcrzr:
     VECTORIZER_MULTI = pickle.load(vcrzr)
 
 GRADE_BIN_MODEL_PATH = os.path.join(BASE_DIR, 'data', 'models', 'binary_model.pickle')
-with open(GRADE_BIN_MODEL_PATH, 'r') as f:
+with open(GRADE_BIN_MODEL_PATH, 'rb') as f:
     GRADE_BIN_MODEL = pickle.load(f)
 
 GRADE_MULTI_MODEL_PATH = os.path.join(BASE_DIR, 'data', 'models', 'multi_model.pickle')
-with open(GRADE_MULTI_MODEL_PATH, 'r') as f:
+with open(GRADE_MULTI_MODEL_PATH, 'rb') as f:
     GRADE_MULTI_MODEL = pickle.load(f)
 
 MEAN_PATH = os.path.join(BASE_DIR, 'data', 'data_for_train', 'means.json')
@@ -38,11 +38,11 @@ with open(MEAN_PATH, 'r') as f:
     MEAN = json.load(f)
 
 VECTORIZER_TYPE_PATH = os.path.join(BASE_DIR, 'data', 'models', 'vectorizer_type.pickle')
-with open(VECTORIZER_TYPE_PATH, 'r') as vcrzr:
+with open(VECTORIZER_TYPE_PATH, 'rb') as vcrzr:
     VECTORIZER_TYPE = pickle.load(vcrzr)
 
 TYPE_MODEL_PATH = os.path.join(BASE_DIR, 'data', 'models', 'type_model.pickle')
-with open(TYPE_MODEL_PATH, 'r') as f:
+with open(TYPE_MODEL_PATH, 'rb') as f:
     TYPE_MODEL = pickle.load(f)
 
 loaded_vectorizer_bin = TfidfVectorizer(decode_error='replace',
@@ -67,7 +67,7 @@ def tokenizer(text):
 
 
 DON_MODEL_PATH = os.path.join(BASE_DIR, 'data', 'models', 'shell.pickle')
-with open(DON_MODEL_PATH, 'r') as mdl:
+with open(DON_MODEL_PATH, 'rb') as mdl:
     DON_MODEL = pickle.load(mdl)
 
 
