@@ -34,7 +34,7 @@ with open(GRADE_MULTI_MODEL_PATH, 'rb') as f:
     GRADE_MULTI_MODEL = pickle.load(f)
 
 MEAN_PATH = os.path.join(BASE_DIR, 'data', 'data_for_train', 'means.json')
-with open(MEAN_PATH, 'r') as f:
+with open(MEAN_PATH, 'r', encoding='utf-8') as f:
     MEAN = json.load(f)
 
 VECTORIZER_TYPE_PATH = os.path.join(BASE_DIR, 'data', 'models', 'vectorizer_type.pickle')

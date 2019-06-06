@@ -33,11 +33,11 @@ with open(PATH_SUFFIXES, encoding='utf-8') as data_file:
     SUFFIXES = json.load(data_file)
 
 PATH_NGRAMS = os.path.join(BASE_DIR, 'data', 'lists', 'ngrams.txt')
-with open(PATH_NGRAMS) as data_file:
+with open(PATH_NGRAMS, encoding='utf-8') as data_file:
     NGRAMS = [x.split() for x in data_file.read().split('\n')]
 
 PATH_CONNECTORS = os.path.join(BASE_DIR, 'data', 'lists', 'connectors.txt')
-with open(PATH_CONNECTORS, 'r') as data_file:
+with open(PATH_CONNECTORS, 'r', encoding='utf-8') as data_file:
     CONNECTORS = data_file.read().strip()
 
 DONS = [
