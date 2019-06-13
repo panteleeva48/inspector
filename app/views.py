@@ -185,7 +185,7 @@ def get_academic_words(text):
         stripped_word = word.strip(punctuation)
         lemma = wordnet_lemmatizer.lemmatize(stripped_word)
         if lemma in UWL:
-            marked_word = re.sub(stripped_word, '<span class="academic">{stripped_word}</span>', word)
+            marked_word = re.sub(stripped_word, '<span class="academic">' + stripped_word + '</span>', word)
             bolded_text += str(marked_word) + ' '
             num_aca += 1
         else:
